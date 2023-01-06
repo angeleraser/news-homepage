@@ -1,0 +1,162 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-logo {
+  display: inline-block;
+}
+
+.header-menu-btn {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 15;
+  width: 40px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  position: relative;
+}
+
+.header-menu-btn span,
+.header-menu-btn::after,
+.header-menu-btn::before {
+  background-color: var(--very-dark-blue);
+  content: "";
+  display: inline-block;
+  height: 4px;
+  transform-origin: center;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.header-menu-btn.is-open span {
+  display: none;
+}
+
+.header-menu-btn.is-open::after,
+.header-menu-btn.is-open::before {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.header-menu-btn.is-open::after {
+  rotate: 45deg;
+}
+
+.header-menu-btn.is-open::before {
+  rotate: -45deg;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 0;
+  height: 0;
+  z-index: 5;
+}
+
+.header-nav.is-open {
+  height: 100%;
+}
+
+.header-nav::before {
+  background-color: var(--very-dark-blue);
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.header-nav ul {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  background-color: var(--off-white);
+  font-family: var(--font-inter);
+  padding: 144px 24px 0;
+  width: 70%;
+  z-index: 10;
+  transition: right 0.3s;
+}
+
+.header-nav-link {
+  color: var(--very-dark-blue);
+}
+
+.header-nav-link:hover {
+  color: var(--soft-red);
+}
+
+.header-nav.is-open::before {
+  display: inline-block;
+}
+
+.header-nav.is-open ul {
+  right: 0;
+}
+
+.header-nav ul li:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 600px) {
+  .header-nav.is-open,
+  .header-nav,
+  .header-nav ul,
+  .header-nav.is-open ul {
+    position: static;
+    height: 100%;
+  }
+
+  .header-nav::before,
+  .header-nav.is-open::before {
+    display: none;
+  }
+
+  .header-nav ul,
+  .header-nav.is-open ul {
+    padding: 0;
+    transition: none;
+    display: flex;
+    justify-content: flex-end;
+    height: auto;
+  }
+
+  .header-nav ul li:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 40px;
+  }
+
+  .header-menu-btn {
+    display: none;
+  }
+
+  .header {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    max-width: 100%;
+  }
+
+  .header-nav {
+    width: 100%;
+  }
+}

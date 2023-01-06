@@ -1,0 +1,54 @@
+.posts-container,
+.post-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.posts-container {
+  gap: 32px;
+}
+
+.post-card {
+  display: flex;
+  align-items: flex-start;
+  font-family: var(--font-inter);
+}
+
+.post-card-img {
+  display: inline-block;
+  width: 106px;
+  height: 126px;
+  margin-right: 24px;
+}
+
+.post-card-content {
+  gap: 16px;
+}
+
+.post-card-title {
+  color: var(--very-dark-blue);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.post-card-title:hover {
+  color: var(--soft-red);
+}
+
+.post-card-description {
+  color: var(--dark-grayish-blue);
+}
+
+.post-card-number {
+  color: var(--grayish-blue);
+  font-weight: 700;
+  font-size: 1.85rem;
+  order: -1;
+}
+
+@media (min-width: 1024px) {
+  .posts-container {
+    flex-direction: row;
+    gap: 54px;
+  }
+}
